@@ -1,0 +1,27 @@
+# AutoMiner - bindings para a SUA versao do Minecraft (libminecraftpe.so, arm64).
+# Copie para <pasta de config do mod>/autominer_bindings.cfg e preencha.
+# Assinaturas: bytes hex com ?? como curinga, ex.:  FD 7B ?? A9 F4 4F ?? A9 ...  (devem ser UNICAS)
+# Offsets: decimal ou 0x hex. Prototipos esperados: ver comentario no topo de src/NativeBridge.cpp.
+
+# --- obrigatorios para andar/mirar/quebrar ---------------------------------------------
+sig.player_tick     =    # void fn(LocalPlayer*)  1x por tick (ex.: LocalPlayer::normalTick)
+sig.get_region      =    # BlockSource* fn(Actor*)
+sig.get_block       =    # Block const* fn(BlockSource*, BlockPos const&)
+sig.block_is_air    =    # bool fn(Block const*)
+sig.move_input      =    # fn(inputState, ...)  hook do tick do input de movimento
+sig.start_destroy   =    # bool fn(GameMode*, BlockPos const&, uchar face, bool&)
+sig.continue_destroy=    # bool fn(GameMode*, BlockPos const&, uchar face, bool&)
+
+off.pos_x           =    # float x,y,z consecutivos no LocalPlayer (pes; se for olho: opt.pos_is_eye = 1)
+off.yaw             =    # float
+off.pitch           =    # float (positivo = olhando para baixo)
+off.move_forward    =    # float no inputState
+off.move_strafe     =    # float no inputState
+off.move_jump       =    # byte  no inputState
+off.gamemode_ptr    =    # GameMode* dentro do LocalPlayer
+
+# --- opcionais --------------------------------------------------------------------------
+# sig.block_is_liquid, sig.block_is_unbreakable, sig.block_is_hazard   (bool fn(Block const*))
+# sig.crosshair_block   (bool fn(Player*, int outPos[3]))   -> botoes "Pos = bloco na mira"
+# off.on_ground, off.yaw_prev, off.pitch_prev, off.yaw_head, off.move_sneak
+# opt.pos_is_eye = 1

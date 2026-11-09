@@ -1,0 +1,12 @@
+{
+  "type": "preload-native",
+  "name": "AutoMiner",
+  "author": "AutoMiner",
+  "description": "Mineracao automatica: templates 2x2, 3x3, escada e tunel, Pos1/Pos2, preview em outline.",
+  "version": "1.0.0",
+  "entry": "AutoMiner.so",
+  "minecraft_versions": [
+    "1.26.*"
+  ],
+  "icon": "icon.png"
+}
